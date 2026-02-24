@@ -312,6 +312,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
+//  CURVED LOOP TEXT MARQUEE — SVG textPath scroll
+// ============================================================
+(function initCurvedLoop() {
+  const textEl = document.querySelector('.cl-row1 textPath');
+  if (!textEl) return;
+
+  let offset = 0;
+  const SPEED = 0.018;   // % per ms — tweak to go faster/slower
+  let lastTime = null;
+  let scrollBoost = 0;
+
+  // Boost speed briefly when user scrolls
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const dy = Math.abs(window.scrollY - lastScrollY);
+    scrollBoost = Math.min(dy * 0.003, 0.06);
+    lastScrollY = window.scrollY;
+  });
+
+  function tick(now) {
+    if (lastTime === null) lastTime = now;
+    const dt = now - lastTime;
+    lastTime = now;
+
+    scrollBoost *= 0.92; // decay boost
+    offset -= (SPEED + scrollBoost) * dt;
+    if (offset <= -100) offset += 100; // seamless loop
+
+    textEl.setAttribute('startOffset', offset.toFixed(3) + '%');
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
+
+// ============================================================
 //  LIVE COURSERA CERTIFICATES — Dynamic Fetch & Render
 // ============================================================
 
