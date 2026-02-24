@@ -643,7 +643,7 @@ body:hover .cursor-follower {
 
 /* Gradient fill: left = transparent, center = white, right = transparent */
 .cl-text textPath {
-  fill: var(--grey-mid);
+  fill: rgba(255, 255, 255, 0.88);
 }
 
 /* JS will animate startOffset from 0% → -100% to create the loop */

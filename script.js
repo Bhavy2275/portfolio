@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!textEl) return;
 
   let offset = 0;
-  const SPEED = 0.018;   // % per ms — tweak to go faster/slower
+  const SPEED = 0.012;   // % per ms — smoother pace
   let lastTime = null;
   let scrollBoost = 0;
 
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollY = window.scrollY;
   window.addEventListener('scroll', () => {
     const dy = Math.abs(window.scrollY - lastScrollY);
-    scrollBoost = Math.min(dy * 0.003, 0.06);
+    scrollBoost = Math.min(dy * 0.002, 0.04); // gentler boost
     lastScrollY = window.scrollY;
   });
 
