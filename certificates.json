@@ -1,0 +1,45 @@
+{
+  "lastUpdated": "2026-02-24",
+  "certificates": [
+    {
+      "id": "crypto-specialization",
+      "title": "Cryptography Specialization",
+      "platform": "Coursera",
+      "issuer": "Stanford University",
+      "date": "2024-12-01",
+      "credentialUrl": "",
+      "skills": ["Cryptography", "Security", "Algorithms"],
+      "imageUrl": ""
+    },
+    {
+      "id": "ai-tools-workshop",
+      "title": "AI Tools Workshop",
+      "platform": "Coursera",
+      "issuer": "Coursera",
+      "date": "2024-10-15",
+      "credentialUrl": "",
+      "skills": ["AI", "Machine Learning", "Productivity"],
+      "imageUrl": ""
+    },
+    {
+      "id": "mern-stack",
+      "title": "MERN Stack Development",
+      "platform": "Coursera",
+      "issuer": "Coursera",
+      "date": "2024-08-20",
+      "credentialUrl": "",
+      "skills": ["MongoDB", "Express", "React", "Node.js"],
+      "imageUrl": ""
+    },
+    {
+      "id": "fullstack-cert",
+      "title": "Full-Stack Development Certificate",
+      "platform": "Coursera",
+      "issuer": "Meta",
+      "date": "2024-06-10",
+      "credentialUrl": "",
+      "skills": ["React", "JavaScript", "REST APIs", "Git"],
+      "imageUrl": ""
+    }
+  ]
+}

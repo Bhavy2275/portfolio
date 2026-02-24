@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhavya Soni — Full Stack Developer & ML Engineer</title>
+    <meta name="description"
+        content="Portfolio of Soni Bhavya Vinay — Full Stack Developer, Machine Learning Engineer, and Cybersecurity enthusiast based in India." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-text">
+                <span>B</span><span>H</span><span>A</span><span>V</span><span>Y</span><span>A</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">
+            <span class="logo-bracket">&lt;</span>BS<span class="logo-bracket">/&gt;</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#courses" class="nav-link">Courses</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <a href="mailto:sonibhavya2001@gmail.com" class="btn-nav">Hire Me</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#courses" class="mobile-link">Courses</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+            <div class="noise-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge reveal-up">
+                <span class="badge-dot"></span>
+                Available for opportunities
+            </div>
+            <h1 class="hero-title">
+                <span class="reveal-line"><em>Soni</em> Bhavya</span>
+                <span class="reveal-line">Vinay</span>
+            </h1>
+            <p class="hero-role reveal-up">
+                Full Stack Developer <span class="divider">·</span> ML Engineer <span class="divider">·</span>
+                Cybersecurity
+            </p>
+            <p class="hero-desc reveal-up">
+                Building production-ready systems that scale — from MERN stack platforms serving thousands,
+                to ML models with 98% accuracy. Specializing in the intersection of web, data, and security.
+            </p>
+            <div class="hero-actions reveal-up">
+                <a href="#projects" class="btn-primary">
+                    View Work
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+            <div class="hero-stats reveal-up">
+                <div class="stat">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Projects Built</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="98">0</span><span class="stat-plus">%</span>
+                    <span class="stat-label">ML Accuracy</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-up">
+                    <p class="about-lead">
+                        I'm a <strong>BCA student at Yenepoya University</strong> specializing in Cyber Security, Cloud
+                        Computing, and Ethical Hacking — with a proven track record of building systems that actually
+                        work in production.
+                    </p>
+                    <p>
+                        From headhunting by Triada after ranking <strong>4th in a national CTF competition</strong>, to
+                        engineering platforms generating $18k+ in business proposals — I solve real problems with code.
+                    </p>
+                    <p>
+                        Currently crafting full-stack solutions with the MERN stack, building machine learning models
+                        for real-world applications, and exploring the intersections of cybersecurity and modern web
+                        development.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                            2× National Hackathon Finalist
+                        </div>
+                        <div class="highlight">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                            4th in Triada CTF — National Level
+                        </div>
+                        <div class="highlight">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 2l2.4 4.8 5.3.8-3.8 3.7.9 5.2L10 14l-4.8 2.5.9-5.2L2.3 7.6l5.3-.8L10 2z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+                            8.2 GPA · Yenepoya University
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card reveal-up">
+                    <div class="card-inner">
+                        <div class="about-avatar">
+                            <div class="avatar-ring"></div>
+                            <div class="avatar-initials">BV</div>
+                        </div>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">India 🇮🇳</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Degree</span>
+                                <span class="info-value">BCA · Cyber Security</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Focus</span>
+                                <span class="info-value">Full Stack + ML</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status</span>
+                                <span class="info-value status-available">● Open to Work</span>
+                            </div>
+                        </div>
+                        <div class="about-socials">
+                            <a href="https://github.com/Bhavya2275" target="_blank" class="social-link" title="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/in/bhavya-soni" target="_blank" class="social-link"
+                                title="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                            <a href="mailto:sonibhavya2001@gmail.com" class="social-link" title="Email">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="timeline">
+                <!-- Triada -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Full-Stack Developer</h3>
+                                <p class="timeline-company">Triada</p>
+                            </div>
+                            <span class="timeline-date">Nov 2023 — Present</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Headhunted after ranking <strong>4th out of 50+ teams</strong> in the Triada CTF
+                                Competition</li>
+                            <li>Designed & maintained company website serving <strong>500+ monthly visitors</strong>
+                                with 99.9% uptime</li>
+                            <li>Reduced website load time by <strong>40%</strong> through code optimization and CDN
+                                implementation</li>
+                            <li>Improved user engagement metrics by <strong>25%</strong> through performance
+                                optimization</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Full Stack</span>
+                            <span class="tag">CDN</span>
+                            <span class="tag">Performance</span>
+                            <span class="tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TCS iON -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Machine Learning Intern</h3>
+                                <p class="timeline-company">TCS iON</p>
+                            </div>
+                            <span class="timeline-date">Jan 2025 — Feb 2025</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Built ML-based Fake News Detection System using NLP, achieving <strong>92%
+                                    accuracy</strong> across 40,000+ articles</li>
+                            <li>Compared 4 ML models — Logistic Regression, Random Forest, SVM, LSTM — with ROC-AUC and
+                                F1-Score metrics</li>
+                            <li>Engineered bias mitigation layer ensuring fair content-based classification</li>
+                            <li>Deployed interactive Streamlit web app for real-time news credibility verification</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">LSTM</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DMA Media -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Freelance Developer & Operations</h3>
+                                <p class="timeline-company">DMA Media / Wolf Academy India</p>
+                            </div>
+                            <span class="timeline-date">2021 — Present</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Engineered MERN stack platforms achieving <strong>13.5% average search CTR</strong> and
+                                position 8 ranking</li>
+                            <li>Supervised platforms with <strong>50+ active users</strong> and launched automated
+                                lead-capture systems</li>
+                            <li>Increased client acquisition by <strong>20%</strong> through optimized conversion
+                                funnels</li>
+                            <li>Authored 2 successful business proposals worth <strong>$18k+</strong> for international
+                                schools (Harrow, Stonehill)</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">MERN</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Google Analytics</span>
+                            <span class="tag">Business Dev</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Projects</h2>
+            </div>
+            <div class="projects-grid">
+
+                <!-- GearShift Pro -->
+                <div class="project-card featured reveal-up">
+                    <div class="project-number">01</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Full Stack</span>
+                            <span class="project-tag featured-tag">Featured</span>
+                        </div>
+                        <h3 class="project-title">GearShift Pro</h3>
+                        <p class="project-subtitle">Automotive E-commerce Platform</p>
+                        <p class="project-desc">
+                            Production-grade automotive platform with Smart Fitment Engine — cascading vehicle filters
+                            (Year → Make → Model → Trim) serving 1000+ SKUs. Reduced avg response time from 2.3s to
+                            <strong>180ms</strong>.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">1000+</span><span class="metric-label">Product
+                                    SKUs</span></div>
+                            <div class="metric"><span class="metric-val">180ms</span><span class="metric-label">Response
+                                    Time</span></div>
+                            <div class="metric"><span class="metric-val">99.9%</span><span
+                                    class="metric-label">Uptime</span></div>
+                        </div>
+                        <div class="project-stack">
+                            <span>PostgreSQL</span><span>React</span><span>Node.js</span><span>Stripe</span><span>JWT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fraud Detection -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">02</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                        </div>
+                        <h3 class="project-title">Fraud Detection System</h3>
+                        <p class="project-subtitle">Financial Security ML Model</p>
+                        <p class="project-desc">
+                            ML model for fraudulent financial transaction detection using ensemble methods. Real-time
+                            Streamlit dashboard for fraud analysis and risk scoring visualization.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">98%</span><span
+                                    class="metric-label">Accuracy</span></div>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>Ensemble ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Management -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">03</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Enterprise</span>
+                        </div>
+                        <h3 class="project-title">Expense Management System</h3>
+                        <p class="project-subtitle">Enterprise Backend Platform</p>
+                        <p class="project-desc">
+                            TypeScript-based backend with role-based access control — Admin, Manager, Employee
+                            hierarchies. Configurable approval workflows supporting 500+ concurrent submissions.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">500+</span><span
+                                    class="metric-label">Concurrent Users</span></div>
+                        </div>
+                        <div class="project-stack">
+                            <span>TypeScript</span><span>MongoDB</span><span>JWT</span><span>REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fake News Detection -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">04</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                        </div>
+                        <h3 class="project-title">Fake News Detector</h3>
+                        <p class="project-subtitle">NLP Classification System</p>
+                        <p class="project-desc">
+                            NLP-powered fake news detection across 40,000+ articles. Compared 4 ML models with bias
+                            mitigation layer preventing unfair publisher-tag reliance.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">92%</span><span
+                                    class="metric-label">Classification Accuracy</span></div>
+                            <div class="metric"><span class="metric-val">40k+</span><span class="metric-label">Articles
+                                    Analyzed</span></div>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>NLP</span><span>LSTM</span><span>SVM</span><span>Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pest Detection -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">05</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                        </div>
+                        <h3 class="project-title">Pest Detection System</h3>
+                        <p class="project-subtitle">CNN Agricultural Vision Model</p>
+                        <p class="project-desc">
+                            CNN-based computer vision model for agricultural pest classification with transfer learning.
+                            Web interface for real-time image analysis across 10 pest categories.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">87%</span><span
+                                    class="metric-label">Accuracy</span></div>
+                            <div class="metric"><span class="metric-val">10</span><span class="metric-label">Pest
+                                    Categories</span></div>
+                        </div>
+                        <div class="project-stack">
+                            <span>Python</span><span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">⟨/⟩</span> Languages
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="90">JavaScript</div>
+                        <div class="skill-pill" data-level="85">Python</div>
+                        <div class="skill-pill" data-level="70">TypeScript</div>
+                        <div class="skill-pill" data-level="65">C / C++</div>
+                        <div class="skill-pill" data-level="60">Java</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">◈</span> Web & Frameworks
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="90">React.js</div>
+                        <div class="skill-pill" data-level="88">Node.js</div>
+                        <div class="skill-pill" data-level="85">Express.js</div>
+                        <div class="skill-pill" data-level="80">HTML / CSS</div>
+                        <div class="skill-pill" data-level="75">MERN Stack</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">◎</span> ML & AI
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="85">Scikit-learn</div>
+                        <div class="skill-pill" data-level="80">TensorFlow</div>
+                        <div class="skill-pill" data-level="78">NLP</div>
+                        <div class="skill-pill" data-level="75">CNN / LSTM</div>
+                        <div class="skill-pill" data-level="72">Streamlit</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">⊞</span> Databases & Tools
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="88">MongoDB</div>
+                        <div class="skill-pill" data-level="80">PostgreSQL</div>
+                        <div class="skill-pill" data-level="75">MySQL</div>
+                        <div class="skill-pill" data-level="80">Git / GitHub</div>
+                        <div class="skill-pill" data-level="75">Google Analytics</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">⏣</span> Security & Cloud
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="78">Cybersecurity</div>
+                        <div class="skill-pill" data-level="75">Ethical Hacking</div>
+                        <div class="skill-pill" data-level="72">Cloud Computing</div>
+                        <div class="skill-pill" data-level="70">CTF Challenges</div>
+                        <div class="skill-pill" data-level="68">Cryptography</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <h3 class="skill-cat-title">
+                        <span class="cat-icon">◫</span> Growth & Marketing
+                    </h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill" data-level="85">SEO</div>
+                        <div class="skill-pill" data-level="80">Google Search Console</div>
+                        <div class="skill-pill" data-level="78">Google Analytics</div>
+                        <div class="skill-pill" data-level="72">Business Proposals</div>
+                        <div class="skill-pill" data-level="70">Lead Generation</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Achievements / Awards (static) -->
+    <section class="certs section" id="certs">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Awards &amp; Achievements</h2>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-item reveal-up">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-info">
+                        <h4>Triada CTF — 4th Place</h4>
+                        <p>National cybersecurity competition, 50+ teams</p>
+                    </div>
+                </div>
+                <div class="cert-item reveal-up">
+                    <div class="cert-icon">🥈</div>
+                    <div class="cert-info">
+                        <h4>2× National Hackathon Finalist</h4>
+                        <p>Multi-year achievement in competitive coding</p>
+                    </div>
+                </div>
+                <div class="cert-item reveal-up">
+                    <div class="cert-icon">⚡</div>
+                    <div class="cert-info">
+                        <h4>TCS iON ML Internship</h4>
+                        <p>92% accuracy Fake News Detection — 40k+ articles</p>
+                    </div>
+                </div>
+                <div class="cert-item reveal-up">
+                    <div class="cert-icon">💼</div>
+                    <div class="cert-info">
+                        <h4>$18k+ Business Proposals</h4>
+                        <p>Harrow &amp; Stonehill international schools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== LIVE COURSERA CERTIFICATES ====== -->
+    <section class="courses section" id="courses">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Coursera Certificates</h2>
+            </div>
+
+            <!-- Status bar -->
+            <div class="courses-meta reveal-up" id="courses-meta">
+                <div class="courses-live-badge">
+                    <span class="live-dot"></span>
+                    Live · Auto-updates from <code>certificates.json</code>
+                </div>
+                <span class="courses-updated" id="courses-updated">Loading…</span>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="courses-filters reveal-up" id="courses-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+            </div>
+
+            <!-- Cards grid -->
+            <div class="courses-grid" id="courses-grid">
+                <!-- Skeleton placeholders while loading -->
+                <div class="course-skeleton"></div>
+                <div class="course-skeleton"></div>
+                <div class="course-skeleton"></div>
+                <div class="course-skeleton"></div>
+            </div>
+
+            <!-- Empty state (hidden by default) -->
+            <div class="courses-empty" id="courses-empty" style="display:none">
+                <div class="courses-empty-icon">📭</div>
+                <p>No certificates yet. Complete a course on Coursera and add it to <code>certificates.json</code>!</p>
+            </div>
+
+            <!-- How-to update hint -->
+            <div class="courses-howto reveal-up">
+                <details>
+                    <summary>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M8 7.5v4M8 5h.01" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" />
+                        </svg>
+                        How to add a new certificate
+                    </summary>
+                    <div class="howto-body">
+                        <p>Open <code>certificates.json</code> and paste this at the top of the
+                            <code>"certificates"</code> array:
+                        </p>
+                        <pre><code>{
+  "id": "unique-id",
+  "title": "Course Title",
+  "platform": "Coursera",
+  "issuer": "University / Partner",
+  "date": "YYYY-MM-DD",
+  "credentialUrl": "https://coursera.org/verify/...",
+  "skills": ["Skill 1", "Skill 2"],
+  "imageUrl": ""
+},</code></pre>
+                        <p>💡 <strong>Full automation:</strong> Use <a href="https://zapier.com"
+                                target="_blank">Zapier</a> — trigger on Coursera completion email → update this JSON
+                            file via GitHub API → portfolio auto-refreshes.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="contact-inner reveal-up">
+                <div class="contact-badge">Let's Connect</div>
+                <h2 class="contact-title">Ready to Build Something Great?</h2>
+                <p class="contact-desc">
+                    Whether it's a full-stack application, an ML system, or a cybersecurity audit — I'm open to exciting
+                    opportunities and collaborations.
+                </p>
+                <div class="contact-options">
+                    <a href="mailto:sonibhavya2001@gmail.com" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <span class="contact-card-label">Email</span>
+                            <span class="contact-card-value">sonibhavya2001@gmail.com</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/bhavya-soni" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <span class="contact-card-label">LinkedIn</span>
+                            <span class="contact-card-value">linkedin.com/in/bhavya-soni</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Bhavya2275" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <span class="contact-card-label">GitHub</span>
+                            <span class="contact-card-value">github.com/Bhavya2275</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="tel:+919429011087" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.98a16 16 0 0 0 6.03 6.03l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <span class="contact-card-label">Phone</span>
+                            <span class="contact-card-value">+91 9429011087</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>BS<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">
+                    Designed & Built by <strong>Soni Bhavya Vinay</strong>
+                </p>
+                <p class="footer-copy">© 2025 · All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="certificates-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

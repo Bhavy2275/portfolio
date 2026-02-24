@@ -1,0 +1,9 @@
+# Exclude the GSD framework folder — not part of portfolio
+get-shit-done-for-antigravity/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Resume PDF (optional — keep if you want it in repo)
+# resume (1).pdf
