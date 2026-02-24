@@ -592,10 +592,10 @@
             <!-- Status bar -->
             <div class="courses-meta reveal-up" id="courses-meta">
                 <div class="courses-live-badge">
-                    <span class="live-dot"></span>
-                    Live · Auto-updates from <code>certificates.json</code>
+                    <span>🎓</span>
+                    My Certificates
                 </div>
-                <span class="courses-updated" id="courses-updated">Loading…</span>
+                <span class="courses-updated" id="courses-updated"></span>
             </div>
 
             <!-- Filter tabs -->
@@ -627,28 +627,27 @@
                             <path d="M8 7.5v4M8 5h.01" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" />
                         </svg>
-                        How to add a new certificate
+                        How to add a certificate
                     </summary>
                     <div class="howto-body">
-                        <p>Open <code>certificates.json</code> and paste this at the top of the
-                            <code>"certificates"</code> array:
-                        </p>
+                        <p>Open <code>certificates-data.js</code> and paste a new entry at the <strong>top</strong> of
+                            the <code>certificates</code> array:</p>
                         <pre><code>{
-  "id": "unique-id",
-  "title": "Course Title",
-  "platform": "Coursera",
-  "issuer": "University / Partner",
-  "date": "YYYY-MM-DD",
-  "credentialUrl": "https://coursera.org/verify/...",
-  "skills": ["Skill 1", "Skill 2"],
-  "imageUrl": ""
+  id: "course-name-2026",
+  title: "Course Title",
+  platform: "Coursera",
+  issuer: "University or Partner Name",
+  date: "YYYY-MM-DD",
+  credentialUrl: "https://coursera.org/verify/XXXXXX",
+  skills: ["Skill 1", "Skill 2", "Skill 3"],
+  imageUrl: ""
 },</code></pre>
-                        <p>💡 <strong>Full automation:</strong> Use <a href="https://zapier.com"
-                                target="_blank">Zapier</a> — trigger on Coursera completion email → update this JSON
-                            file via GitHub API → portfolio auto-refreshes.</p>
+                        <p>Save the file, refresh the page — done! Certificates added within 30 days automatically get a
+                            <strong>NEW</strong> badge.</p>
                     </div>
                 </details>
             </div>
+
         </div>
     </section>
 

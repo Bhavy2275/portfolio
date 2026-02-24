@@ -1,29 +1,44 @@
 /**
  * ============================================================
- *  CERTIFICATES DATA — BHAVYA SONI
+ *  MY CERTIFICATES — SONI BHAVYA VINAY
  *  ============================================================
- *  HOW TO ADD A NEW COURSERA CERTIFICATE:
+ *  HOW TO ADD A CERTIFICATE:
  *
- *  1. Copy one of the objects below and paste it at the TOP of
- *     the `certificates` array (newest first).
- *  2. Fill in:
- *     - title        : exact course name from Coursera
- *     - issuer       : university / company that issued it
+ *  1. Copy the template below and paste it at the VERY TOP
+ *     of the `certificates` array (newest certificates first).
+ *
+ *  2. Fill in the fields:
+ *     - id           : any unique short name, no spaces (e.g. "ml-course-2026")
+ *     - title        : exact course name
+ *     - platform     : "Coursera", "Udemy", etc.
+ *     - issuer       : university or company (e.g. "Google", "Stanford")
  *     - date         : completion date as "YYYY-MM-DD"
- *     - credentialUrl: the Coursera verify link (e.g. https://coursera.org/verify/XXXXXX)
+ *     - credentialUrl: the verify link from Coursera (or leave "" if none)
  *     - skills       : up to 4 skills the course covered
- *  3. Save the file and refresh the portfolio — done!
  *
- *  AUTOMATION TIP:
- *  Use Zapier → "New Email matching search" (filter for emails
- *  from no-reply@coursera.org) → "Code by Zapier" step to paste
- *  the new entry here automatically via a GitHub API commit.
+ *  3. Save this file → refresh the portfolio → done!
+ *     Certificates added within the last 30 days get a NEW badge.
+ *
+ *  TEMPLATE (copy this):
+ *  ─────────────────────
+ *  {
+ *    id: "course-name-2026",
+ *    title: "Course Title Here",
+ *    platform: "Coursera",
+ *    issuer: "Issuer Name",
+ *    date: "2026-01-01",
+ *    credentialUrl: "https://coursera.org/verify/XXXXXX",
+ *    skills: ["Skill 1", "Skill 2", "Skill 3"],
+ *    imageUrl: ""
+ *  },
  * ============================================================
  */
 
 window.CERTS_DATA = {
     lastUpdated: "2026-02-24",
     certificates: [
+
+        // ── ADD NEW CERTIFICATES ABOVE THIS LINE ──────────────────
 
         {
             id: "crypto-specialization",
