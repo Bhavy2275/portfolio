@@ -221,48 +221,8 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
 });
 
-// === TYPEWRITER EFFECT FOR HERO ROLE ===
-const heroRole = document.querySelector('.hero-role');
-if (heroRole) {
-  const roles = [
-    'Full Stack Developer · ML Engineer · Cybersecurity',
-    'MERN Stack Expert · NLP Engineer · CTF Hacker',
-    'React Developer · Python Developer · Problem Solver'
-  ];
-  let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let roleTimer;
 
-  function typeRole() {
-    const current = roles[roleIndex];
-    if (isDeleting) {
-      heroRole.innerHTML = formatRole(current.substring(0, charIndex - 1));
-      charIndex--;
-    } else {
-      heroRole.innerHTML = formatRole(current.substring(0, charIndex + 1));
-      charIndex++;
-    }
 
-    let speed = isDeleting ? 30 : 50;
-    if (!isDeleting && charIndex === current.length) {
-      speed = 2500;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      speed = 400;
-    }
-    roleTimer = setTimeout(typeRole, speed);
-  }
-
-  function formatRole(text) {
-    return text.replace(/·/g, '<span class="divider">·</span>');
-  }
-
-  // Start typewriter after loader
-  setTimeout(typeRole, 3000);
-}
 
 // === NOISE TEXTURE SUBTLE MOVEMENT ===
 const noiseOverlay = document.querySelector('.noise-overlay');

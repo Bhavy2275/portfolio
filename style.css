@@ -45,6 +45,7 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -326,7 +327,7 @@ body:hover .cursor-follower {
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 280px;
   height: 100vh;
   background: var(--black-2);
@@ -337,11 +338,12 @@ body:hover .cursor-follower {
   justify-content: center;
   padding: 48px;
   gap: 32px;
-  transition: right var(--transition-slow);
+  transition: transform var(--transition-slow);
+  transform: translateX(100%);
 }
 
 .mobile-menu.open {
-  right: 0;
+  transform: translateX(0);
 }
 
 .mobile-link {
@@ -371,6 +373,7 @@ body:hover .cursor-follower {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 #hero3d {
@@ -1606,6 +1609,22 @@ body:hover .cursor-follower {
   /* Hide heavy 3D animation on mobile for performance */
   #hero3d {
     display: none;
+  }
+
+  /* Hide custom cursor on touch devices */
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  /* Prevent horizontal overflow */
+  html,
+  body {
+    overflow-x: hidden;
   }
 }
 
