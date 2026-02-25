@@ -1596,11 +1596,11 @@ body:hover .cursor-follower {
   }
 
   .curved-loop-svg {
-    height: 120px;
+    height: 180px;
   }
 
   .cl-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* Disable scroll-snap on mobile to prevent jerky scrolling */
