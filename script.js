@@ -312,6 +312,152 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
+//  SILK BACKGROUND — WebGL fragment shader (contact section)
+// ============================================================
+(function initSilk() {
+  const canvas = document.getElementById('silkCanvas');
+  if (!canvas) return;
+
+  const gl = canvas.getContext('webgl', { antialias: true, alpha: true });
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  const VS = `
+    attribute vec2 a_pos;
+    void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+  `;
+
+  const FS = `
+    precision mediump float;
+    uniform vec2  u_res;
+    uniform float u_time;
+
+    vec2 hash2(vec2 p) {
+      p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+      return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+    }
+
+    float noise(vec2 p) {
+      vec2 i = floor(p);
+      vec2 f = fract(p);
+      vec2 u = f * f * (3.0 - 2.0 * f);
+      return mix(
+        mix(dot(hash2(i + vec2(0,0)), f - vec2(0,0)),
+            dot(hash2(i + vec2(1,0)), f - vec2(1,0)), u.x),
+        mix(dot(hash2(i + vec2(0,1)), f - vec2(0,1)),
+            dot(hash2(i + vec2(1,1)), f - vec2(1,1)), u.x),
+        u.y);
+    }
+
+    float silk(vec2 uv, float t) {
+      float n = 0.0;
+      float amp   = 0.52;
+      float freq  = 2.0;
+      vec2  flow  = vec2(t * 0.12, t * 0.08);
+
+      for (int i = 0; i < 5; i++) {
+        vec2 q = uv * freq + flow;
+        vec2 r = vec2(
+          noise(q + vec2(0.0, t * 0.05)),
+          noise(q + vec2(5.2, t * 0.04))
+        );
+        n   += amp * noise(q + 2.0 * r);
+        uv  += 0.15 * vec2(cos(t * 0.06 + uv.y), sin(t * 0.05 + uv.x));
+        freq *= 2.0;
+        amp  *= 0.5;
+        flow *= 1.2;
+      }
+      return n;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_res.xy;
+      uv.x *= u_res.x / u_res.y;
+
+      float t = u_time * 0.5;
+      float n = silk(uv, t);
+      n = n * 0.5 + 0.5;
+
+      vec3 colA = vec3(0.08, 0.04, 0.25);
+      vec3 colB = vec3(0.35, 0.10, 0.60);
+      vec3 colC = vec3(0.65, 0.15, 0.55);
+      vec3 colD = vec3(0.12, 0.06, 0.35);
+
+      vec3 col = mix(colA, colB, smoothstep(0.0, 0.4, n));
+      col = mix(col, colC, smoothstep(0.35, 0.70, n));
+      col = mix(col, colD, smoothstep(0.65, 1.0, n));
+
+      vec2 vig = uv - vec2(u_res.x / u_res.y * 0.5, 0.5);
+      float vignette = 1.0 - 0.55 * dot(vig, vig);
+      col *= vignette;
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compile(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error(gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes = gl.getUniformLocation(prog, 'u_res');
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+
+  function resize() {
+    const section = canvas.parentElement;
+    const W = section.offsetWidth;
+    const H = section.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+    gl.viewport(0, 0, W, H);
+    gl.uniform2f(uRes, W, H);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let running = false;
+  let startTime = null;
+  let rafId = null;
+
+  function render(now) {
+    if (!startTime) startTime = now;
+    gl.uniform1f(uTime, (now - startTime) * 0.001);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if (running) rafId = requestAnimationFrame(render);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries[0].isIntersecting;
+    if (visible && !running) {
+      running = true;
+      rafId = requestAnimationFrame(render);
+    } else if (!visible && running) {
+      running = false;
+      cancelAnimationFrame(rafId);
+    }
+  }, { threshold: 0.01 });
+
+  observer.observe(canvas.parentElement);
+})();
+
+// ============================================================
 //  CURVED LOOP TEXT MARQUEE — SVG textPath scroll
 // ============================================================
 (function initCurvedLoop() {
@@ -602,4 +748,356 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── KICK OFF ───────────────────────────────────────────────
   loadCertificates();
 
+})();
+
+// ============================================================
+//  CONTACT FORM HANDLING — Basic Validation & Messaging
+// ============================================================
+(function initContactForm() {
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('contact-btn');
+
+  if (!form || !status || !btn) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Visual feedback
+    const originalBtnContent = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span>Sending...</span>';
+    status.textContent = '';
+    status.className = '';
+
+    // Collect data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Basic local simulation (since there's no backend)
+    // In a real scenario, you'd fetch() to an API endpoint
+    setTimeout(() => {
+      // Simulate success
+      status.textContent = 'Message sent successfully! I will get back to you soon.';
+      status.className = 'success';
+      form.reset();
+
+      // Reset button
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnContent;
+      }, 2000);
+    }, 1500);
+
+    // If you want to use a real service like Formspree, you could do:
+    /*
+    try {
+      const response = await fetch('https://formspree.io/f/your-id', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) { ... success ... }
+      else { throw new Error(); }
+    } catch (err) { ... error ... }
+    */
+  });
+})();
+
+// ============================================================
+//  SILK BACKGROUND — Vanilla WebGL port of reactbits.dev/Silk
+// ============================================================
+(function initSilk() {
+  const canvas = document.getElementById('silkCanvas');
+  if (!canvas) return;
+
+  const gl = canvas.getContext('webgl', { antialias: true, alpha: true });
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  // ── CONFIG (matches reactbits defaults) ─────────────────────
+  const SPEED = 5;
+  const SCALE = 1;
+  const COLOR = [0.482, 0.455, 0.506]; // #7B7481
+  const NOISE_INTENSITY = 1.5;
+  const ROTATION = 0;
+
+  // ── SHADERS ─────────────────────────────────────────────────
+  const VERT = `
+    attribute vec2 a_position;
+    varying   vec2 vUv;
+    void main(){
+      vUv = a_position * 0.5 + 0.5;
+      gl_Position = vec4(a_position, 0.0, 1.0);
+    }`;
+
+  const FRAG = `
+    precision highp float;
+    varying vec2 vUv;
+
+    uniform float uTime;
+    uniform vec3  uColor;
+    uniform float uSpeed;
+    uniform float uScale;
+    uniform float uRotation;
+    uniform float uNoiseIntensity;
+
+    const float e = 2.71828182845904523536;
+
+    float noise(vec2 texCoord){
+      float G = e;
+      vec2  r = (G * sin(G * texCoord));
+      return fract(r.x * r.y * (1.0 + texCoord.x));
+    }
+
+    vec2 rotateUvs(vec2 uv, float angle){
+      float c = cos(angle);
+      float s = sin(angle);
+      mat2  rot = mat2(c, -s, s, c);
+      return rot * uv;
+    }
+
+    void main(){
+      float rnd     = noise(gl_FragCoord.xy);
+      vec2  uv      = rotateUvs(vUv * uScale, uRotation);
+      vec2  tex     = uv * uScale;
+      float tOffset = uSpeed * uTime;
+
+      tex.y += 0.03 * sin(8.0 * tex.x - tOffset);
+
+      float pattern = 0.6 +
+                      0.4 * sin(5.0 * (tex.x + tex.y +
+                                       cos(3.0 * tex.x + 5.0 * tex.y) +
+                                       0.02 * tOffset) +
+                               sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
+
+      vec4 col  = vec4(uColor, 1.0) * vec4(pattern) - rnd / 15.0 * uNoiseIntensity;
+      col.a = 1.0;
+      gl_FragColor = col;
+    }`;
+
+  // ── HELPERS ─────────────────────────────────────────────────
+  function compile(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error('Silk shader error:', gl.getShaderInfoLog(s));
+      gl.deleteShader(s);
+      return null;
+    }
+    return s;
+  }
+
+  const vs = compile(gl.VERTEX_SHADER, VERT);
+  const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+  if (!vs || !fs) return;
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+    console.error('Silk link error:', gl.getProgramInfoLog(prog));
+    return;
+  }
+  gl.useProgram(prog);
+
+  // ── FULL-SCREEN QUAD ────────────────────────────────────────
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+    -1, -1, 1, -1, -1, 1,
+    -1, 1, 1, -1, 1, 1
+  ]), gl.STATIC_DRAW);
+
+  const aPos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  // ── UNIFORMS ────────────────────────────────────────────────
+  const uTime = gl.getUniformLocation(prog, 'uTime');
+  const uColor = gl.getUniformLocation(prog, 'uColor');
+  const uSpeed = gl.getUniformLocation(prog, 'uSpeed');
+  const uScale = gl.getUniformLocation(prog, 'uScale');
+  const uRotation = gl.getUniformLocation(prog, 'uRotation');
+  const uNoiseIntensity = gl.getUniformLocation(prog, 'uNoiseIntensity');
+
+  gl.uniform3fv(uColor, COLOR);
+  gl.uniform1f(uSpeed, SPEED);
+  gl.uniform1f(uScale, SCALE);
+  gl.uniform1f(uRotation, ROTATION);
+  gl.uniform1f(uNoiseIntensity, NOISE_INTENSITY);
+
+  // ── RESIZE ──────────────────────────────────────────────────
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = canvas.clientWidth * dpr;
+    const h = canvas.clientHeight * dpr;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // ── RENDER LOOP ─────────────────────────────────────────────
+  let time = 0;
+  let running = false;
+  let rafId;
+
+  function render(now) {
+    rafId = requestAnimationFrame(render);
+    const delta = 1 / 60;            // fixed step ≈ 60 fps
+    time += 0.1 * delta;
+    resize();
+    gl.uniform1f(uTime, time);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+
+  // ── VISIBILITY GATE (perf) ──────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries[0].isIntersecting;
+    if (visible && !running) { running = true; rafId = requestAnimationFrame(render); }
+    if (!visible && running) { running = false; cancelAnimationFrame(rafId); }
+  }, { threshold: 0.01 });
+
+  observer.observe(canvas.parentElement);
+})();
+
+// ============================================================
+//  3D HERO — Procedural Wireframe Icosahedron + Particles
+// ============================================================
+(function initHero3D() {
+  if (typeof THREE === 'undefined') return;
+
+  const container = document.getElementById('hero3d');
+  if (!container) return;
+
+  // ── SCENE SETUP ──────────────────────────────────────────────
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.z = 5;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setClearColor(0x000000, 0);
+  container.appendChild(renderer.domElement);
+
+  // ── GROUP ────────────────────────────────────────────────────
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // ── WIREFRAME ICOSAHEDRON (outer) ────────────────────────────
+  const icoGeo = new THREE.IcosahedronGeometry(1.4, 1);
+  const icoMat = new THREE.MeshBasicMaterial({
+    color: 0xffffff, wireframe: true, transparent: true, opacity: 0.15
+  });
+  group.add(new THREE.Mesh(icoGeo, icoMat));
+
+  // ── INNER ICOSAHEDRON ────────────────────────────────────────
+  const innerGeo = new THREE.IcosahedronGeometry(0.9, 1);
+  const innerMat = new THREE.MeshBasicMaterial({
+    color: 0xffffff, wireframe: true, transparent: true, opacity: 0.08
+  });
+  const inner = new THREE.Mesh(innerGeo, innerMat);
+  group.add(inner);
+
+  // ── EDGE HIGHLIGHTS ──────────────────────────────────────────
+  const edgeGeo = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.4, 1));
+  const edgeMat = new THREE.LineBasicMaterial({
+    color: 0xffffff, transparent: true, opacity: 0.25
+  });
+  group.add(new THREE.LineSegments(edgeGeo, edgeMat));
+
+  // ── PARTICLES ────────────────────────────────────────────────
+  const PCOUNT = 200;
+  const positions = new Float32Array(PCOUNT * 3);
+  const velos = [];
+
+  for (let i = 0; i < PCOUNT; i++) {
+    const r = 1.8 + Math.random() * 1.2;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+    positions[i * 3 + 2] = r * Math.cos(phi);
+    velos.push({ speed: 0.001 + Math.random() * 0.003, axis: Math.random() > 0.5 ? 'y' : 'x' });
+  }
+
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const pMat = new THREE.PointsMaterial({
+    color: 0xffffff, size: 0.02, transparent: true, opacity: 0.5, sizeAttenuation: true
+  });
+  group.add(new THREE.Points(pGeo, pMat));
+
+  // ── CONNECTING LINES ─────────────────────────────────────────
+  const lp = [];
+  for (let i = 0; i < 30; i++) {
+    const a = Math.floor(Math.random() * PCOUNT) * 3;
+    const b = Math.floor(Math.random() * PCOUNT) * 3;
+    lp.push(positions[a], positions[a + 1], positions[a + 2], positions[b], positions[b + 1], positions[b + 2]);
+  }
+  const lGeo = new THREE.BufferGeometry();
+  lGeo.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3));
+  group.add(new THREE.LineSegments(lGeo, new THREE.LineBasicMaterial({
+    color: 0xffffff, transparent: true, opacity: 0.04
+  })));
+
+  // ── MOUSE PARALLAX ───────────────────────────────────────────
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  document.addEventListener('mousemove', e => {
+    mouse.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  // ── RESIZE ───────────────────────────────────────────────────
+  function onResize() {
+    const w = container.clientWidth, h = container.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', onResize);
+
+  // ── ANIMATE ──────────────────────────────────────────────────
+  let running = false, rafId;
+
+  function animate() {
+    rafId = requestAnimationFrame(animate);
+
+    mouse.x += (mouse.tx - mouse.x) * 0.05;
+    mouse.y += (mouse.ty - mouse.y) * 0.05;
+
+    group.rotation.y += 0.003;
+    group.rotation.x += 0.001;
+    inner.rotation.y -= 0.002;
+    inner.rotation.z += 0.001;
+    group.rotation.x += mouse.y * 0.003;
+    group.rotation.y += mouse.x * 0.003;
+
+    // Orbital particle drift
+    const pos = pGeo.attributes.position.array;
+    for (let i = 0; i < PCOUNT; i++) {
+      const v = velos[i], idx = i * 3;
+      const x = pos[idx], y = pos[idx + 1], z = pos[idx + 2];
+      const c = Math.cos(v.speed), s = Math.sin(v.speed);
+      if (v.axis === 'y') { pos[idx] = x * c - z * s; pos[idx + 2] = x * s + z * c; }
+      else { pos[idx + 1] = y * c - z * s; pos[idx + 2] = y * s + z * c; }
+    }
+    pGeo.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+
+  // ── VISIBILITY GATE ──────────────────────────────────────────
+  const obs = new IntersectionObserver(entries => {
+    const v = entries[0].isIntersecting;
+    if (v && !running) { running = true; rafId = requestAnimationFrame(animate); }
+    if (!v && running) { running = false; cancelAnimationFrame(rafId); }
+  }, { threshold: 0.01 });
+  obs.observe(container.parentElement);
 })();

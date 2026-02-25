@@ -67,6 +67,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
+            <div id="hero3d"></div>
             <div class="grid-overlay"></div>
             <div class="noise-overlay"></div>
         </div>
@@ -95,7 +96,14 @@
                             stroke-linejoin="round" />
                     </svg>
                 </a>
-                <a href="#contact" class="btn-secondary">Get In Touch</a>
+                <a href="Bhavya_Soni_Resume.pdf" target="_blank" class="btn-secondary">
+                    Download CV
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-left: 8px;">
+                        <path d="M8 3v9m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#contact" class="btn-outline">Get In Touch</a>
             </div>
             <div class="hero-stats reveal-up">
                 <div class="stat">
@@ -243,6 +251,13 @@
                                 </svg>
                             </a>
                         </div>
+                        <a href="Bhavya_Soni_Resume.pdf" target="_blank" class="btn-resume-card">
+                            <span>Download Full Resume</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v9m0 0l-3-3m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -369,20 +384,16 @@
                         <h3 class="project-title">GearShift Pro</h3>
                         <p class="project-subtitle">Automotive E-commerce Platform</p>
                         <p class="project-desc">
-                            Production-grade automotive platform with Smart Fitment Engine — cascading vehicle filters
-                            (Year → Make → Model → Trim) serving 1000+ SKUs. Reduced avg response time from 2.3s to
-                            <strong>180ms</strong>.
+                            Full-stack automotive e-commerce platform with a Smart Fitment Engine — cascading vehicle
+                            filters (Year → Make → Model → Trim). Features Stripe payments, JWT auth, and a
+                            PostgreSQL backend with full product management.
                         </p>
-                        <div class="project-metrics">
-                            <div class="metric"><span class="metric-val">1000+</span><span class="metric-label">Product
-                                    SKUs</span></div>
-                            <div class="metric"><span class="metric-val">180ms</span><span class="metric-label">Response
-                                    Time</span></div>
-                            <div class="metric"><span class="metric-val">99.9%</span><span
-                                    class="metric-label">Uptime</span></div>
-                        </div>
                         <div class="project-stack">
                             <span>PostgreSQL</span><span>React</span><span>Node.js</span><span>Stripe</span><span>JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275" target="_blank" rel="noopener"
+                                class="project-link-btn">GitHub ↗</a>
                         </div>
                     </div>
                 </div>
@@ -407,6 +418,10 @@
                         <div class="project-stack">
                             <span>Python</span><span>Scikit-learn</span><span>Streamlit</span><span>Ensemble ML</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275/fraud-financial-detection" target="_blank"
+                                rel="noopener" class="project-link-btn">GitHub ↗</a>
+                        </div>
                     </div>
                 </div>
 
@@ -430,6 +445,10 @@
                         <div class="project-stack">
                             <span>TypeScript</span><span>MongoDB</span><span>JWT</span><span>REST API</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275/Expense-management-system-for-companies"
+                                target="_blank" rel="noopener" class="project-link-btn">GitHub ↗</a>
+                        </div>
                     </div>
                 </div>
 
@@ -448,19 +467,72 @@
                         </p>
                         <div class="project-metrics">
                             <div class="metric"><span class="metric-val">92%</span><span
-                                    class="metric-label">Classification Accuracy</span></div>
+                                    class="metric-label">Accuracy</span></div>
                             <div class="metric"><span class="metric-val">40k+</span><span class="metric-label">Articles
                                     Analyzed</span></div>
                         </div>
                         <div class="project-stack">
                             <span>Python</span><span>NLP</span><span>LSTM</span><span>SVM</span><span>Streamlit</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275/fraud-financial-detection" target="_blank"
+                                rel="noopener" class="project-link-btn">GitHub ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SwiftTalk -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">05</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Full Stack</span>
+                            <span class="project-tag featured-tag">Live ✓</span>
+                        </div>
+                        <h3 class="project-title">SwiftTalk</h3>
+                        <p class="project-subtitle">Real-time Chat Application</p>
+                        <p class="project-desc">
+                            Full-stack real-time chat app with a React frontend and Node.js backend. Socket.io-powered
+                            messaging, deployed live on Vercel.
+                        </p>
+                        <div class="project-stack">
+                            <span>React</span><span>Node.js</span><span>Socket.io</span><span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://swift-talk-one.vercel.app" target="_blank" rel="noopener"
+                                class="project-link-btn project-link-live">Live Demo ↗</a>
+                            <a href="https://github.com/Bhavy2275/SwiftTalk" target="_blank" rel="noopener"
+                                class="project-link-btn">GitHub ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Task Manager -->
+                <div class="project-card reveal-up">
+                    <div class="project-number">06</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Productivity</span>
+                        </div>
+                        <h3 class="project-title">Digital Task Manager</h3>
+                        <p class="project-subtitle">Smart Task & Reminder App</p>
+                        <p class="project-desc">
+                            Feature-rich task manager with reminders, categories, and priority levels. Intuitive UI
+                            built in JavaScript with local persistence.
+                        </p>
+                        <div class="project-stack">
+                            <span>JavaScript</span><span>HTML</span><span>CSS</span><span>LocalStorage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275/Digital-Task-Manager" target="_blank" rel="noopener"
+                                class="project-link-btn">GitHub ↗</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Pest Detection -->
                 <div class="project-card reveal-up">
-                    <div class="project-number">05</div>
+                    <div class="project-number">07</div>
                     <div class="project-content">
                         <div class="project-tags">
                             <span class="project-tag">Computer Vision</span>
@@ -479,6 +551,10 @@
                         </div>
                         <div class="project-stack">
                             <span>Python</span><span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Bhavy2275/pest_detection" target="_blank" rel="noopener"
+                                class="project-link-btn">GitHub ↗</a>
                         </div>
                     </div>
                 </div>
@@ -647,120 +723,108 @@
                 <p>No certificates yet. Complete a course on Coursera and add it to <code>certificates.json</code>!</p>
             </div>
 
-            <!-- How-to update hint -->
-            <div class="courses-howto reveal-up">
-                <details>
-                    <summary>
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
-                            <path d="M8 7.5v4M8 5h.01" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" />
-                        </svg>
-                        How to add a certificate
-                    </summary>
-                    <div class="howto-body">
-                        <p>Open <code>certificates-data.js</code> and paste a new entry at the <strong>top</strong> of
-                            the <code>certificates</code> array:</p>
-                        <pre><code>{
-  id: "course-name-2026",
-  title: "Course Title",
-  platform: "Coursera",
-  issuer: "University or Partner Name",
-  date: "YYYY-MM-DD",
-  credentialUrl: "https://coursera.org/verify/XXXXXX",
-  skills: ["Skill 1", "Skill 2", "Skill 3"],
-  imageUrl: ""
-},</code></pre>
-                        <p>Save the file, refresh the page — done! Certificates added within 30 days automatically get a
-                            <strong>NEW</strong> badge.
-                        </p>
-                    </div>
-                </details>
-            </div>
 
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact section" id="contact">
+        <canvas id="silkCanvas" aria-hidden="true"></canvas>
         <div class="container">
-            <div class="contact-inner reveal-up">
+            <div class="contact-header reveal-up">
                 <div class="contact-badge">Let's Connect</div>
                 <h2 class="contact-title">Ready to Build Something Great?</h2>
                 <p class="contact-desc">
                     Whether it's a full-stack application, an ML system, or a cybersecurity audit — I'm open to exciting
                     opportunities and collaborations.
                 </p>
-                <div class="contact-options">
-                    <a href="mailto:sonibhavya2001@gmail.com" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
+            </div>
+            <div class="contact-grid reveal-up">
+                <div class="contact-form-wrap">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-form" id="contact-btn">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M17 3L3 10L9 11L10 17L17 3Z" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                        </div>
-                        <div class="contact-card-text">
-                            <span class="contact-card-label">Email</span>
-                            <span class="contact-card-value">sonibhavya2001@gmail.com</span>
-                        </div>
-                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="https://linkedin.com/in/bhavya-soni" target="_blank" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                        </div>
-                        <div class="contact-card-text">
-                            <span class="contact-card-label">LinkedIn</span>
-                            <span class="contact-card-value">linkedin.com/in/bhavya-soni</span>
-                        </div>
-                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="https://github.com/Bhavya2275" target="_blank" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-                            </svg>
-                        </div>
-                        <div class="contact-card-text">
-                            <span class="contact-card-label">GitHub</span>
-                            <span class="contact-card-value">github.com/Bhavya2275</span>
-                        </div>
-                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="tel:+919429011087" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.98a16 16 0 0 0 6.03 6.03l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                            </svg>
-                        </div>
-                        <div class="contact-card-text">
-                            <span class="contact-card-label">Phone</span>
-                            <span class="contact-card-value">+91 9429011087</span>
-                        </div>
-                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
+                        </button>
+                    </form>
+                    <div id="form-status"></div>
+                </div>
+                <div class="contact-info-wrap">
+                    <div class="contact-options">
+                        <a href="mailto:sonibhavya2001@gmail.com" class="contact-card">
+                            <div class="contact-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="contact-card-label">Email</span>
+                                <span class="contact-card-value">sonibhavya2001@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/bhavya-soni" target="_blank" class="contact-card">
+                            <div class="contact-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="contact-card-label">LinkedIn</span>
+                                <span class="contact-card-value">linkedin.com/in/bhavya-soni</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Bhavya2275" target="_blank" class="contact-card">
+                            <div class="contact-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+                                </svg>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="contact-card-label">GitHub</span>
+                                <span class="contact-card-value">github.com/Bhavya2275</span>
+                            </div>
+                        </a>
+                        <a href="tel:+919429011087" class="contact-card">
+                            <div class="contact-card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.98a16 16 0 0 0 6.03 6.03l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div class="contact-card-text">
+                                <span class="contact-card-label">Phone</span>
+                                <span class="contact-card-value">+91 9429011087</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -779,6 +843,7 @@
     </footer>
 
     <script src="certificates-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 
