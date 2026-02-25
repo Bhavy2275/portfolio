@@ -1590,9 +1590,17 @@ body:hover .cursor-follower {
     display: none;
   }
 
-  /* Hide curved loop marquee — too congested on mobile */
+  /* Scale down curved loop marquee for mobile */
   .curved-loop-wrap {
-    display: none;
+    margin-top: 0;
+  }
+
+  .curved-loop-svg {
+    height: 120px;
+  }
+
+  .cl-text {
+    font-size: 14px;
   }
 
   /* Disable scroll-snap on mobile to prevent jerky scrolling */
